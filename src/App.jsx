@@ -5,17 +5,15 @@ export default function App() {
     console.log('hello');
   };
   return (
-    <div>
-      <UserProfile
-        username='deo'
-        age={25}
-        isLoggedIn={false}
-        favoriteFoods={[
-          { name: 'Sushi', id: 'sushi' },
-          { name: 'Pizza', id: 'pizza' },
-        ]}
-        callMe={callMe}
-      />
-    </div>
+    <UserProfile
+      username='deo'
+      age={25}
+      isLoggedIn={false}
+      favoriteFoods={[
+        { name: 'Sushi', id: 'sushi' },
+        { name: 'Pizza', id: 'pizza' },
+      ]}
+      callMe={callMe}
+    />
   );
 }
