@@ -7,12 +7,12 @@ export default function App() {
   return (
     <div>
       <UserProfile
+        username='deo'
         age={25}
         isLoggedIn={false}
         favoriteFoods={[
-          { name: 'Sushi' },
-          { name: 'Pizza' },
-          { name: 'Adobo' },
+          { name: 'Sushi', id: 'sushi' },
+          { name: 'Pizza', id: 'pizza' },
         ]}
         callMe={callMe}
       />
