@@ -12,7 +12,17 @@ export function UserDetails({ user, setUsers }) {
         <button onClick={() => setIsEditing((currentState) => !currentState)}>
           Edit
         </button>
-        <button>Delete</button>
+        <button
+          onClick={() =>
+            setUsers((currentUsersState) =>
+              currentUsersState.filter(
+                (currentUser) => currentUser.id !== user.id
+              )
+            )
+          }
+        >
+          Delete
+        </button>
         {isEditing && (
           <button
             onClick={() => {
