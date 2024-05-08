@@ -43,6 +43,7 @@ export function UserDetails({ user, setUsers }) {
       </div>
       <div>
         <b>ID:</b>
+        <span>{user.id}</span>
         <br />
         <b>Username:</b>
         {isEditing ? (
