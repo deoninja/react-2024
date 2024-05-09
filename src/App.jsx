@@ -1,69 +1,19 @@
-import { useState } from 'react';
-import { UserDetails } from './components/UserDetails';
+import { useState, useEffect } from 'react';
 export default function App() {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [counter, setCounter] = useState(4);
+  const [counter, setCounter] = useState(0);
+  const [sync, setSync] = useState(false);
 
-  const [users, setUsers] = useState([
-    {
-      id: 1,
-      username: 'test',
-      email: 'test@gmali.com',
-    },
-    {
-      id: 2,
-      username: 'test2',
-      email: 'test2@gmali.com',
-    },
-    {
-      id: 3,
-      username: 'test3',
-      email: 'test3@gmali.com',
-    },
-  ]);
+  useEffect(() => {
+    console.log('Rendering...');
+    document.title = 'React Tutorials ' + counter;
+  }, [sync]);
+
   return (
     <div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          const newUser = {
-            id: counter,
-            username,
-            email,
-          };
-          setCounter((currentCounter) => currentCounter + 1);
-          setUsers((currentUsersState) => [...currentUsersState, newUser]);
-          setUsername('');
-          setEmail('');
-        }}
-      >
-        <div>
-          <label htmlFor='username'>Username </label>
-          <input
-            type='text'
-            id='username'
-            name='username'
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor='email'>Email </label>
-          <input
-            type='email'
-            id='email'
-            name='email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <button>Add User</button>
-      </form>
+      You click the button {counter} times <br />
+      <button onClick={() => setCounter((count) => count + 1)}>Click Me</button>
+      <button onClick={() => setSync((current) => !current)}>Sync</button>
       <br />
-      {users.map((user, index) => (
-        <UserDetails key={index} user={user} setUsers={setUsers} />
-      ))}
     </div>
   );
 }
