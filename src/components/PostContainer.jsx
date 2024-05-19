@@ -1,11 +1,14 @@
 import { PostContent } from './PostContent';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { UserContext } from '../utils/contexts/UserContext';
 
 export function PostContainer() {
   const [data, setData] = useState('Hello World!');
+  const userContextData = useContext(UserContext);
+
   return (
     <div>
-      <PostContent data={data} />
+      <div>{userContextData.displayName}</div>
     </div>
   );
 }
