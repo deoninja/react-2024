@@ -6,9 +6,16 @@ export function PostContainer() {
   const [data, setData] = useState('Hello World!');
   const userContextData = useContext(UserContext);
 
+  console.log(userContextData);
+
   return (
     <div>
+      <div>
+        <span>Post Container</span>
+      </div>
       <div>{userContextData.displayName}</div>
+      <br />
+      <PostContent data={data} />
     </div>
   );
 }
