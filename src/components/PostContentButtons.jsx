@@ -14,7 +14,7 @@ export function PostContentButtons() {
         onClick={() =>
           setUserData((currentState) => ({
             ...currentState,
-            displayName: 'Updated Display Name',
+            name: 'Updated  Name',
           }))
         }
       >
