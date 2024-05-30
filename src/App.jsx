@@ -3,7 +3,7 @@ import { UserContext } from './utils/contexts/UserContext';
 import { PostContainer } from './components/PostContainer';
 import { PostContentButtons } from './components/PostContentButtons';
 import { useFetchUser } from './utils/hooks/useFetchUser';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 
 export default function App() {
   const { user, loading, error } = useFetchUser(2);
@@ -12,11 +12,13 @@ export default function App() {
 
   const [userData, setUserData] = useState();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (!loading && !error && user) setUserData(user);
-  }, [loading, error, user]);
+    // navigate('/users');
+  }, [loading, error, user, navigate]);
 
-  console.log(loading);
   return (
     <>
       <nav>
@@ -32,6 +34,20 @@ export default function App() {
           </li>
         </ul>
       </nav>
+
+      <div>
+        <label htmlFor='data'>Enter data</label>
+        <input
+          type='text'
+          id='data'
+          onChange={(e) => {
+            if (e.target.value.length > 10) {
+              navigate('/blog-posts');
+            }
+          }}
+        />
+      </div>
+
       <UserContext.Provider value={{ ...userData, setUserData }}>
         <div>{loading ? 'Loading...' : <PostContainer />}</div>
       </UserContext.Provider>
