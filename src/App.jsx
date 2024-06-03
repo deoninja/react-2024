@@ -30,7 +30,7 @@ export default function App() {
             <Link to='/users'>Users</Link>
           </li>
           <li>
-            <Link to='/blog-post'>Blog</Link>
+            <Link to='/blog-posts'>Blog</Link>
           </li>
         </ul>
       </nav>
@@ -42,7 +42,17 @@ export default function App() {
           id='data'
           onChange={(e) => {
             if (e.target.value.length > 10) {
-              navigate('/blog-posts');
+              navigate('/blog-posts', {
+                state: {
+                  posts: [
+                    {
+                      id: 1,
+                      title: 'Hello world!',
+                      content: 'Welcome to my first post!',
+                    },
+                  ],
+                },
+              });
             }
           }}
         />
