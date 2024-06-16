@@ -18,13 +18,11 @@ describe('App', () => {
     });
   });
 
-  it('should render save button when edit is clicked', async () => {
+  it('should display username & email input fields', async () => {
     render(<App />);
     const editButton = screen.getByRole('button', { name: 'Edit' });
     await userEvent.click(editButton);
-    expect(
-      screen.getByRole('textbox', { name: 'username' })
-    ).toBeInTheDocument();
-    expect(screen.getByRole('textbox', { name: 'email' })).toBeInTheDocument();
+    expect(screen.getByLabelText('Username')).toBeInTheDocument();
+    expect(screen.getByLabelText('Email')).toBeInTheDocument();
   });
 });
