@@ -10,5 +10,6 @@ describe('App', () => {
 
   it('should render save button when edit is clicked', () => {
     render(<App />);
+    screen.getByRole('button', { name: 'Edit' });
   });
 });
