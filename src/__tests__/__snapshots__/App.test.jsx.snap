@@ -4,10 +4,14 @@ exports[`App > should render users 1`] = `
 <div>
   <div>
     <div>
-      <button>
+      <button
+        data-testid="edit-btn-1"
+      >
         Edit
       </button>
-      <button>
+      <button
+        data-testid="delete-btn-1"
+      >
         Delete
       </button>
     </div>
@@ -31,6 +35,42 @@ exports[`App > should render users 1`] = `
       </b>
       <span>
         l3X2k@example.com
+      </span>
+    </div>
+  </div>
+  <div>
+    <div>
+      <button
+        data-testid="edit-btn-2"
+      >
+        Edit
+      </button>
+      <button
+        data-testid="delete-btn-2"
+      >
+        Delete
+      </button>
+    </div>
+    <div>
+      <b>
+        ID:
+      </b>
+      <span>
+        2
+      </span>
+      <br />
+      <b>
+        Username:
+      </b>
+      <span>
+        janedoe
+      </span>
+      <br />
+      <b>
+        Email:
+      </b>
+      <span>
+        janedoe@example.com
       </span>
     </div>
   </div>

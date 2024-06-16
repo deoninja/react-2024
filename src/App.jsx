@@ -21,6 +21,11 @@ export default function App() {
       username: 'johndoe',
       email: 'l3X2k@example.com',
     },
+    {
+      id: 2,
+      username: 'janedoe',
+      email: 'janedoe@example.com',
+    },
   ]);
 
   // useEffect(() => {
