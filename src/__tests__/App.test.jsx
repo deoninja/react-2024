@@ -22,12 +22,9 @@ describe('App', () => {
     render(<App />);
     const editButton = screen.getByRole('button', { name: 'Edit' });
     await userEvent.click(editButton);
-    const saveButton = screen.getByRole('button', { name: 'Save' });
-    expect(saveButton).toBeInTheDocument();
-  });
-  it('should display username & email input fields', () => {
-    render(<App />);
-    const editButton = screen.getByRole('button', { name: 'Edit' });
-    expect(editButton).toBeInTheDocument();
+    expect(
+      screen.getByRole('textbox', { name: 'username' })
+    ).toBeInTheDocument();
+    expect(screen.getByRole('textbox', { name: 'email' })).toBeInTheDocument();
   });
 });
